@@ -1,7 +1,7 @@
 const Watchlist = () => {
     return(
-        <div>
-
+        <div className="watchlist-box">
+            <p>Woops</p>
         </div>
     )
 }
