@@ -4,6 +4,7 @@ import Watchlist from "./Watchlist";
 import { useState } from "react"
 import ShoppingCart from "./ShoppingCart";
 import Browse from "./Browse";
+import ItemContainer from "./ItemContainer";
 
 const HomePage = () => {
     const [potato, setPotato] = useState("tomato")
@@ -14,6 +15,7 @@ const HomePage = () => {
             <Watchlist />
             <ShoppingCart />
             <Browse />
+            <ItemContainer />
         </ProfilePanel>
     )
 }
