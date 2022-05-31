@@ -20,5 +20,17 @@
 
 .profile-circle {
   border: 1px solid black;
+background-color: transparent;
   border-radius: 100%;
+  width: 30vw;
+  height: 30vw;
+}
+
+.profile-circle.div {
+  border: 3px solid red;
+  border-radius: 100%;
+  /* border-radius: 8px; */
+  position: inherit;
+  width: 30vw;
+  height: 30vw;
 }
