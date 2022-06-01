@@ -20,6 +20,8 @@ class UsersController < ApplicationController
             render json: user, status: 200
         else 
             render json: {error: "Access Denied!"}, status: 403
+        end
+    end
 
     def update
         user = User.find_by(id: params[:id])
