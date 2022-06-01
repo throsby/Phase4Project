@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const LoginForm = ({setLoginLink}) => {
+const LoginForm = ({setLoginLink, setSignUp }) => {
 
     const [loginFormData, setLoginFormData] = useState({
         'username':"",
@@ -12,7 +12,16 @@ const LoginForm = ({setLoginLink}) => {
         setLoginLink(prevState => !prevState)
     }
 
+    const handleSignUpClick = (e) => {
+        e.stopPropagation();
+        e.preventDefault()
+        setLoginLink(prevState => !prevState)
+        setSignUp(prevState => !prevState)
+    }
+
     const handleSubmit = async (e) => {
+        
+        console.log(e)
         try {
             e.preventDefault()
             let req = await fetch('http://localhost:3000/login', {
@@ -20,7 +29,8 @@ const LoginForm = ({setLoginLink}) => {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(loginFormData)
             })
-            
+            let res = await req.json()
+            console.log(res)
         } catch(error){
             alert(error.message)
         }
@@ -30,8 +40,8 @@ const LoginForm = ({setLoginLink}) => {
         <div onClick={handleClick} className="login-modal">
             <input onClick={(e)=>{e.stopPropagation()}} name='name' placeholder='Username' type='text' onChange={(e) => {setLoginFormData({...loginFormData, username: e.target.value})}}/>
             <input onClick={(e)=>{e.stopPropagation()}} name='name' placeholder='Password' type='password' onChange={(e) => {setLoginFormData({...loginFormData, password: e.target.value})}}/>
-            <button>Login</button>
-            <div onClick={(e)=>{e.stopPropagation()}} className="signup">Sign up</div>
+            <button onClick={handleSubmit}>Login</button>
+            <div onClick={handleSignUpClick} className="signup">Sign up</div>
         </div>
     )
 }

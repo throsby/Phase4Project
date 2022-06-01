@@ -16,8 +16,8 @@ const LoginLink = () => {
     return(
         <div>
             <p onClick={handleClick}>LoginLinkFromComponent</p>
-            {loginLink && <LoginForm setLoginLink={setLoginLink}/>}
-            {signUp && <Signup setSignUp={setSignUp}/>}
+            {loginLink && <LoginForm setSignUp={setSignUp} setLoginLink={setLoginLink}/>}
+            {signUp && <Signup setSignUp={setSignUp} setLoginLink={setLoginLink}/>}
         </div>
     )
 }

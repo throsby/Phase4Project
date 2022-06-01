@@ -1,8 +1,14 @@
-const Signup = () => {
+const Signup = ({ setSignUp, setLoginLink }) => {
+
+    const handleClick = (e) => {
+        e.preventDefault()
+        console.log("I am in fact getting here")
+        setLoginLink(prevState => !prevState)
+        setSignUp(prevState => !prevState)
+    }
+
     return(
-        <div className="browse-box">
-            <p>Signup</p>
-        </div>
+        <div onClick={handleClick}>Signup</div>
     )
 }
 
