@@ -6,13 +6,20 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = User.find_by(id: params[:id])
+        user = User.find_by(id: session[:user_id])
         if user
         render json: user, status: 200
         else
             render json: {error: 'User not found'}, status: 404
         end
     end
+
+    def me 
+        user = User.find_by(id: session[:user_id])
+        if user
+            render json: user, status: 200
+        else 
+            render json: {error: "Access Denied!"}, status: 403
 
     def update
         user = User.find_by(id: params[:id])
