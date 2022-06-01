@@ -68,6 +68,19 @@
   margin: 1%;
 }
 
+.item-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.item-card {
+  width:25%;
+  margin: 2%;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
 
 
 
