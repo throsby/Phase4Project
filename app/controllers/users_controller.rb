@@ -14,6 +14,13 @@ class UsersController < ApplicationController
         end
     end
 
+    def me 
+        user = User.find_by(id: session[:user_id])
+        if user
+            render json: user, status: 200
+        else 
+            render json: {error: "Access Denied!"}, status: 403
+
     def update
         user = User.find_by(id: params[:id])
         if user
