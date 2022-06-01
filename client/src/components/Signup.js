@@ -32,16 +32,15 @@ const Signup = ({ setSignUp, setLoginLink }) => {
             })
             let res = await req.json()
             console.log(res)
-            if (res.ok) {
-                setSubmitSuccess(true)
-            }
+            // if (res.ok) {
+            //     setSubmitSuccess(true)
+            // }
         } catch(error){
             alert(error.message)
         }
     }
 
     return(
-        
         <form id="login-form" className="signup-modal" onSubmit={handleSubmit} onClick={handleClickOffModal}>
             <input onClick={(e)=>{e.stopPropagation()}} name='user[first_name]' placeholder='First Name' type='text'/>
             <input onClick={(e)=>{e.stopPropagation()}} name='user[last_name]' placeholder='Last Name' type='text'/>
@@ -50,7 +49,7 @@ const Signup = ({ setSignUp, setLoginLink }) => {
             <input onClick={(e)=>{e.stopPropagation()}} name='user[password]' placeholder='Password' type='password'/>
             <input onClick={(e)=>{e.stopPropagation()}} placeholder='Confirm Password' type='password'/>
             <input onClick={(e)=>{e.stopPropagation()}} type="submit" value={"Signup!"} style={{cursor:'pointer'}}/>
-            <div onClick={(e)=>{e.stopPropagation()}} onClick={handleLoginClick} className="signup" >Already have an account? <span style={{cursor:'pointer', textDecoration: "underline"}}>Login</span></div>
+            <div onClick={(e)=>{e.stopPropagation(); handleLoginClick()}} className="signup">Already have an account? <span style={{cursor:'pointer', textDecoration: "underline"}}>Login</span></div>
         </form>
         
     )
