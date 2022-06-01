@@ -30,7 +30,7 @@ class UsersController < ApplicationController
             render json: user
         else
             render json: {error: 'User not found'}, status: 404
-        end 
+        end
     end
 
 
@@ -59,6 +59,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:first_name, :last_name, :email, :password, :username)
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :username)
     end
 end

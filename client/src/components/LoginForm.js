@@ -20,8 +20,6 @@ const LoginForm = ({setLoginLink, setSignUp }) => {
     }
 
     const handleSubmit = async (e) => {
-        
-        console.log(e)
         try {
             e.preventDefault()
             let req = await fetch('http://localhost:3000/login', {
@@ -40,8 +38,8 @@ const LoginForm = ({setLoginLink, setSignUp }) => {
         <div onClick={handleClick} className="login-modal">
             <input onClick={(e)=>{e.stopPropagation()}} name='name' placeholder='Username' type='text' onChange={(e) => {setLoginFormData({...loginFormData, username: e.target.value})}}/>
             <input onClick={(e)=>{e.stopPropagation()}} name='name' placeholder='Password' type='password' onChange={(e) => {setLoginFormData({...loginFormData, password: e.target.value})}}/>
-            <button onClick={handleSubmit}>Login</button>
-            <div onClick={handleSignUpClick} className="signup">Sign up</div>
+            <button onClick={handleSubmit} style={{cursor:'pointer'}}>Login</button>
+            <div onClick={handleSignUpClick} className="signup" >Don't have an account? <span style={{cursor:'pointer', textDecoration: "underline"}}>Sign up</span></div>
         </div>
     )
 }
