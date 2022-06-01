@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Starting seeds'
-u1 = User.create(first_name: 'Justin', last_name: 'Chazen', email: 'jc@gmail.com', username: 'JC9396', password_digest: '111111')
-u2 = User.create(first_name: 'Throsby', last_name: 'Wells', email: 'thros@gmail.com', username: 'ThrosbyW', password_digest: '111111')
-u3 = User.create(first_name: 'Max', last_name: 'Ogle', email: 'maxog@gmail.com', username: 'MaxOg', password_digest: '111111')
+u1 = User.create(first_name: 'Justin', last_name: 'Chazen', email: 'jc@gmail.com', username: 'JC9396', password: '111111')
+u2 = User.create(first_name: 'Throsby', last_name: 'Wells', email: 'thros@gmail.com', username: 'ThrosbyW', password: '111111')
+u3 = User.create(first_name: 'Max', last_name: 'Ogle', email: 'maxog@gmail.com', username: 'MaxOg', password: '111111')
 
 
 i1 = Item.create(name: 'Hat', stock: 1, price: 14.85, description: 'This hat is sick', user_id: 1)
