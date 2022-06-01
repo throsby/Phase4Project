@@ -30,7 +30,7 @@ class UsersController < ApplicationController
             render json: user
         else
             render json: {error: 'User not found'}, status: 404
-        end 
+        end
     end
 
 

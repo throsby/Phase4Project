@@ -68,6 +68,25 @@
   margin: 1%;
 }
 
+.signup-modal {
+  position: absolute;
+  border: 1px solid hotpink;
+  text-align: center;
+  align-items: center;
+  top: 1%;
+  left: 69%;
+  width: 30%;
+  height: 50px;
+  background-color: var(--middlePink);
+  
+}
+
+
+
+.signup-modal input,button {
+  margin: 1%;
+}
+
 .item-container {
   display: flex;
   flex-wrap: wrap;
