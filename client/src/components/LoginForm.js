@@ -29,6 +29,7 @@ const LoginForm = ({setLoginLink, setSignUp }) => {
             })
             let res = await req.json()
             console.log(res)
+            localStorage.setItem('session_user_id',res.id)
         } catch(error){
             alert(error.message)
         }

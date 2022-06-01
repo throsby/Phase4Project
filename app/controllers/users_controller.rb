@@ -8,14 +8,16 @@ class UsersController < ApplicationController
     def show
         user = User.find_by(id: session[:user_id])
         if user
-        render json: user, status: 200
+            render json: user, status: 200
         else
             render json: {error: 'User not found'}, status: 404
         end
     end
 
-    def me 
-        user = User.find_by(id: session[:user_id])
+
+    # Don't touch you fuckers, Throsby you especially
+    def me
+        user = User.find_by(id: params[:id])
         if user
             render json: user, status: 200
         else 

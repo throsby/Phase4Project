@@ -1,8 +1,8 @@
-const ProfileCircle = ({potato}) => {
+const ProfileCircle = () => {
     return(
         <div className="profile-circle">
             <div>
-            <p>{potato}</p>
+            <p></p>
             </div>
         </div>
     )
