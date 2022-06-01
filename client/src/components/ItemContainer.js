@@ -6,10 +6,11 @@ const ItemContainer = () => {
     const [allItems, setAllItems] = useState([])
 
 
-    useEffect(()=> {
-        (async()=>{
-            let req = await fetch('http://localhost:3000/items')
+    useEffect(() => {
+        (async () => {
+            let req = await fetch('http://localhost:3000/items') 
             let res = await req.json()
+            
             setAllItems(res)
         })()
     },[])

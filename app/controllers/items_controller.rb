@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
     def index 
-        items = Item.all 
-        render json: items
+        items = Item.all
+        render json: items, status: 200
     end
 
     def show 
