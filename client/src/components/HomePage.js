@@ -12,8 +12,10 @@ const HomePage = () => {
     return(
         <ProfilePanel >
             <ProfileCircle potato={potato} />
-            <Watchlist />
-            <ShoppingCart />
+            <div className="lists-container">
+                <ShoppingCart />
+                <Watchlist />
+            </div>
             <Browse />
             <ItemContainer />
         </ProfilePanel>
