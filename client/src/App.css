@@ -1,3 +1,8 @@
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  --middlePink: rgb(255, 241, 247);
+}
+
 .watchlist-box {
   border: 1px solid black;
   border-radius: 8px;
@@ -45,6 +50,26 @@
   width: min(40vh, 270px);
   height: min(40vh, 270px);
 }
+
+.login-modal {
+  position: absolute;
+  border: 1px solid hotpink;
+  text-align: center;
+  align-items: center;
+  top: 1%;
+  left: 69%;
+  width: 30%;
+  height: 50px;
+  background-color: var(--middlePink);
+  
+}
+
+.login-modal input,button {
+  margin: 1%;
+}
+
+
+
 
 /* .profile-circle.div.p {
   border: 3px solid red;
