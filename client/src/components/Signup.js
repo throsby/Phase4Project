@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const Signup = ({ setSignUp, setLoginLink }) => {
-
+    const [submitSuccess, setSubmitSuccess] = useState(false)
     const [signUpFormData, setSignUpFormData] = useState({
         "first_name":"",
         "last_name":"",
@@ -10,7 +10,7 @@ const Signup = ({ setSignUp, setLoginLink }) => {
         "password":""
     })
 
-    const handleClick = (e) => {
+    const handleClickOffModal = (e) => {
         e.preventDefault()
         setSignUp(prevState => !prevState)
     }
@@ -23,32 +23,36 @@ const Signup = ({ setSignUp, setLoginLink }) => {
     }
 
     const handleSubmit = async (e) => {
-        
+        e.preventDefault()
+        let form = new FormData(document.querySelector("#login-form"))
         try {
-            e.preventDefault()
             let req = await fetch('http://localhost:3000/users', {
                 method: "POST",
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(signUpFormData)
+                body: form
             })
             let res = await req.json()
             console.log(res)
+            if (res.ok) {
+                setSubmitSuccess(true)
+            }
         } catch(error){
             alert(error.message)
         }
     }
 
     return(
-        <form className="signup-modal" onClick={handleClick}>
-            <input required onClick={(e)=>{e.stopPropagation()}} name='name' placeholder='First Name' type='text' onChange={(e) => {setSignUpFormData({...signUpFormData, first_name: e.target.value})}}/>
-            <input required onClick={(e)=>{e.stopPropagation()}} name='name' placeholder='Last Name' type='text' onChange={(e) => {setSignUpFormData({...signUpFormData, last_name: e.target.value})}}/>
-            <input required onClick={(e)=>{e.stopPropagation()}} name='name' placeholder='Email' type='email' onChange={(e) => {setSignUpFormData({...signUpFormData, email: e.target.value})}}/>
-            <input required onClick={(e)=>{e.stopPropagation()}} name='name' placeholder='Username' type='text' onChange={(e) => {setSignUpFormData({...signUpFormData, username: e.target.value})}}/>
-            <input required onClick={(e)=>{e.stopPropagation()}} name='name' placeholder='Password' type='password' onChange={(e) => {setSignUpFormData({...signUpFormData, password: e.target.value})}}/>
-            <input required onClick={(e)=>{e.stopPropagation()}} name='name' placeholder='Confirm Password' type='password'/>
-            <input onClick={handleSubmit} type="submit" value={"Submit"} style={{cursor:'pointer'}}/>
-            <div onClick={handleLoginClick} className="signup" >Already have an account? <span style={{cursor:'pointer', textDecoration: "underline"}}>Login</span></div>
+        
+        <form id="login-form" className="signup-modal" onSubmit={handleSubmit} onClick={handleClickOffModal}>
+            <input onClick={(e)=>{e.stopPropagation()}} name='user[first_name]' placeholder='First Name' type='text'/>
+            <input onClick={(e)=>{e.stopPropagation()}} name='user[last_name]' placeholder='Last Name' type='text'/>
+            <input onClick={(e)=>{e.stopPropagation()}} name='user[email]' placeholder='Email' type='email'/>
+            <input onClick={(e)=>{e.stopPropagation()}} name='user[username]' placeholder='Username' type='text'/>
+            <input onClick={(e)=>{e.stopPropagation()}} name='user[password]' placeholder='Password' type='password'/>
+            <input onClick={(e)=>{e.stopPropagation()}} placeholder='Confirm Password' type='password'/>
+            <input onClick={(e)=>{e.stopPropagation()}} type="submit" value={"Signup!"} style={{cursor:'pointer'}}/>
+            <div onClick={(e)=>{e.stopPropagation()}} onClick={handleLoginClick} className="signup" >Already have an account? <span style={{cursor:'pointer', textDecoration: "underline"}}>Login</span></div>
         </form>
+        
     )
 }
 
