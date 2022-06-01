@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :item_tags
+  resources :tags
   resources :items
   resources :users
   # Routing logic: fallback requests for React Router.
