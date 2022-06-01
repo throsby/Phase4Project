@@ -44,6 +44,16 @@ class UsersController < ApplicationController
 
     end
 
+    def destroy
+        user = User.find_by(id: session[:user_id])
+        if user
+            user.destroy
+            render json: {message: "Account successfully deleted"}, status: 200
+        else
+            render json: {error: "Access Denied!"}, status: 403
+        end
+    end
+
     
 
     private
