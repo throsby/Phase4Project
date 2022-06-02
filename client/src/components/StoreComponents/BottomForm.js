@@ -1,8 +1,8 @@
-const Store = () => {
+const BottomForm = () => {
 
     return(
         <div>Bottom Form</div>
     )
 }
 
-export default Store;
+export default BottomForm;
