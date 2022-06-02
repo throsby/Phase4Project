@@ -3,8 +3,8 @@ const StoreHeader = ({children}) => {
 
     return(
         <>
-            <div className="store-header">StoreHeader</div>
-            {children}
+            <div className="store-header"></div>
+            <div>{children}</div>
         </>
     )
 }
