@@ -1,7 +1,15 @@
-const BottomForm = () => {
+const BottomForm = ({setModalVisible}) => {
+
+    function handleClick () {
+        setModalVisible(prevState => {return !prevState})
+    }
 
     return(
-        <div>Bottom Form</div>
+        <>
+            <div className="mask" onClick={handleClick}>
+                <div></div>
+            </div>
+        </>
     )
 }
 

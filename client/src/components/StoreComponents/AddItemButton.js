@@ -1,8 +1,11 @@
+const AddItemButton = ({setModalVisible}) => {
 
-const AddItemButton = () => {
-
+    function handleClick () {
+        setModalVisible(prevState => !prevState)
+    }
+    
     return(
-        <div className="add-item-button">AddItemButton</div>
+        <div className="add-item-button" onClick={handleClick}>AddItemButton</div>
         
     )
 }

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import LoginForm from "./LoginForm"
 import Signup from "./Signup"
+import Link from "react-router-dom"
+
 
 const LoginLink = () => {
 
@@ -40,7 +42,7 @@ const LoginLink = () => {
 
     return(
         <>
-            {username ? <div>Welcome <span style={{cursor:'pointer', textDecoration: "underline"}}>{username}</span> <span style={{cursor:'pointer', textDecoration: "underline"}} onClick={handleLogout}>Logout</span></div>
+            {username ? <>Welcome <span style={{cursor:'pointer', textDecoration: "underline"}}>{username}</span> <span style={{cursor:'pointer', textDecoration: "underline"}} onClick={handleLogout}>Logout</span></>
                 :
                     <div>Welcome, Guest!
                             <span style={{cursor:'pointer', textDecoration: "underline"}} onClick={handleClick}>Login here!</span> <br/>
