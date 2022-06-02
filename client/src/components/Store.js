@@ -1,8 +1,12 @@
+import BottomForm from "./StoreComponents/BottomForm"
+
 const Store = () => {
+
     return(
-        <div>
-            <p>Store</p>
-        </div>
+
+
+        <BottomForm />
+        
     )
 }
 
