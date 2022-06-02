@@ -51,3 +51,5 @@ end
 gem "active_model_serializers", "~> 0.10.12"
 
 gem 'stripe', '~> 6.2'
+
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'

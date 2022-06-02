@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/me/:id", to: "users#me"
   delete "/logout", to: "sessions#destroy"
+  post '/create-checkout-session', to: "stripe#checkout"
 end
