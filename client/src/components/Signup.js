@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const Signup = ({ setSignUp, setLoginLink }) => {
+const Signup = ({ setSignUp, setLoginLink, setUsername }) => {
     
     const [submitSuccess, setSubmitSuccess] = useState(false)
     
@@ -9,9 +9,7 @@ const Signup = ({ setSignUp, setLoginLink }) => {
         setSignUp(prevState => !prevState)
     }
     
-    const handleLoginClick = (e) => {
-        // e.stopPropagation();
-        // e.preventDefault()
+    const handleLoginClick = () => {
         setLoginLink(prevState => !prevState)
         setSignUp(prevState => !prevState)
     }
@@ -44,7 +42,7 @@ const Signup = ({ setSignUp, setLoginLink }) => {
                 <input onClick={(e)=>{e.stopPropagation()}} name='user[first_name]' placeholder='First Name' type='text'/>
                 <input onClick={(e)=>{e.stopPropagation()}} name='user[last_name]' placeholder='Last Name' type='text'/>
                 <input onClick={(e)=>{e.stopPropagation()}} name='user[email]' placeholder='Email' type='email'/>
-                <input onClick={(e)=>{e.stopPropagation()}} name='user[username]' placeholder='Username' type='text'/>
+                <input onClick={(e)=>{e.stopPropagation()}} name='user[username]' placeholder='Username' type='text' onSubmit={(e)=> setUsername(e.target.value)}/>
                 <input onClick={(e)=>{e.stopPropagation()}} name='user[password]' placeholder='Password' type='password'/>
                 <input onClick={(e)=>{e.stopPropagation()}} placeholder='Confirm Password' type='password'/>
                 <input onClick={(e)=>{e.stopPropagation()}} type="submit" value={"Signup!"} style={{cursor:'pointer'}}/>

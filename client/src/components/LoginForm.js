@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const LoginForm = ({setLoginLink, setSignUp }) => {
+const LoginForm = ({setLoginLink, setSignUp, setUsername }) => {
 
     const [loginFormData, setLoginFormData] = useState({
         'username':"",
@@ -28,7 +28,7 @@ const LoginForm = ({setLoginLink, setSignUp }) => {
                 body: JSON.stringify(loginFormData)
             })
             let res = await req.json()
-            console.log(res)
+            setUsername(res.username)
             localStorage.setItem('session_user_id',res.id)
         } catch(error){
             alert(error.message)
