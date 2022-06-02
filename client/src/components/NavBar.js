@@ -2,7 +2,7 @@ import LoginLink from "./LoginLink"
 import { useState,useEffect } from "react";
 
 
-const NavBar = () => {
+const NavBar = ({username, setUsername}) => {
 
     useEffect(() => {
         window.addEventListener('scroll', isSticky);
@@ -19,7 +19,7 @@ const NavBar = () => {
     
     return(
         <div className="navbar">
-            <LoginLink />
+            <LoginLink username={username} setUsername={setUsername}/>
         </div>
     )
 }

@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react"
 import LoginForm from "./LoginForm"
 import Signup from "./Signup"
-import Link from "react-router-dom"
 
+const LoginLink = ({username, setUsername}) => {
 
-const LoginLink = () => {
-
-    const [ , setUser ] = useState(null)
     const [ loginLink, setLoginLink ] = useState(false)
     const [ signUp, setSignUp ] = useState(false)
-    const [ username, setUsername ] = useState("")
     
     const handleClick = (e) => {
         e.preventDefault()
@@ -33,7 +29,6 @@ const LoginLink = () => {
         await fetch('http://localhost:3000/logout', {
             method: "DELETE"
             })
-        setUser(null)
         setUsername("")
         localStorage.clear()
     }

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = User.find_by(id: session[:user_id])
+        user = User.find_by(id: params[:id])
         if user
             render json: user, status: 200
         else
@@ -32,6 +32,15 @@ class UsersController < ApplicationController
             render json: user
         else
             render json: {error: 'User not found'}, status: 404
+        end
+    end
+
+    def user_items
+        items = User.find_by(id: params[:id]).items
+        if items
+            render json: items, status: 200
+        else
+            render json: {error: 'you suck'}, status: 404
         end
     end
 

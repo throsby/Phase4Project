@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get "/me/:id", to: "users#me"
   delete "/logout", to: "sessions#destroy"
   post '/create-checkout-session', to: "stripe#checkout"
+  get '/user-items/:id', to: "users#user_items"
 end
