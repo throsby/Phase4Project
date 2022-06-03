@@ -13,13 +13,20 @@ const NewItem = ({setAllItems, setUserItems}) => {
     })
 
     const handleSubmit = async (e) => {
+        console.log(e)
+        console.log(e.target[4].files[0])
+        console.log(formData)
+        let wholeForm = new FormData(document.querySelector(".newItemForm"))
+        wholeForm.append("image",e.target[4].files[0])
+        console.log(wholeForm)
         try {
             e.preventDefault()
-            let user_id = localStorage.getItem("session_user_id")
+            // let user_id = localStorage.getItem("session_user_id")
             let req = await fetch('http://localhost:3000/items', {
                 method: "POST",
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(formData)
+                // headers: {'Content-Type': 'application/json'},
+                // body: JSON.stringify(formData)
+                body: wholeForm
             })
             // if (req.ok){
                 let res = await req.json()
@@ -36,12 +43,12 @@ const NewItem = ({setAllItems, setUserItems}) => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <input name='name' placeholder='Item Name' type='text' onChange={(e) => {setFormData({...formData, name:e.target.value})}}/>
-                <input name='stock' placeholder='Stock' type='integer' onChange={(e) => {setFormData({...formData, stock:e.target.value})}}/>
-                <input name='price' placeholder='Price' type='float' onChange={(e) => {setFormData({...formData, price:e.target.value})}}/>
-                <input name='desc' placeholder='Item Description' type='text' onChange={(e) => {setFormData({...formData, description:e.target.value})}}/>
-                <input name='image' placeholder='Image' type='file' onChange={(e) => {setFormData({...formData, image:e.target.value})}}/>
+            <form className='newItemForm' onSubmit={handleSubmit}>
+                <input name='item[name]' placeholder='Item Name' type='text' />
+                <input name='item[stock]' placeholder='Stock' type='integer' />
+                <input name='item[price]' placeholder='Price' type='float' />
+                <input name='item[description]' placeholder='Item Description' type='text' />
+                <input name='item[image]' placeholder='Image' type='file' />
                 <input type='submit'/>
             </form>
         </div>
