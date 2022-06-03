@@ -2,7 +2,7 @@ const ProfilePanel = ({children}) => {
     
     return(
         <div className="profile-box">
-            <h1>Testing</h1>
+            <h1>Sheesh</h1>
             {children}
         </div>
     )
