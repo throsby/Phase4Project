@@ -3,6 +3,8 @@ import ItemCard from './ItemCard'
 
 const ItemContainer = ({allItems, setAllItems}) => {
 
+    const [allItems, setAllItems] = useState([])
+    const [updatedItem, setUpdatedItem] = useState([])
 
 
     useEffect(() => {
@@ -12,14 +14,14 @@ const ItemContainer = ({allItems, setAllItems}) => {
             
             setAllItems(res)
         })()
-    },[])
+    },[updatedItem])
 
 
     return (
         <div className='item-container'>
             {
                 allItems.map((element)=>{
-                    return( <ItemCard element={element} key={element.id} />)
+                    return( <ItemCard setUpdatedItem={setUpdatedItem} allItems={allItems} setAllItems={setAllItems} element={element} key={element.id} />)
                 })
             }
         </div>
