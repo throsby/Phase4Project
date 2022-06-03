@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import ItemCard from './ItemCard'
 
-const ItemContainer = () => {
+const ItemContainer = ({allItems, setAllItems}) => {
 
-    const [allItems, setAllItems] = useState([])
 
 
     useEffect(() => {

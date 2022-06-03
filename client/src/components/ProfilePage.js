@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import ItemCard from './ItemCard'
+import NewItem from './NewItem'
 
-const ProfilePage = ({username}) => {
+const ProfilePage = ({username, setAllItems}) => {
 
     const [userId, setUserId] = useState(0)
     const [userItems, setUserItems] = useState([])
+    const [formVisible, setFormVisible] = useState(false)
     const isMounted = useRef(false)
 
 
@@ -34,6 +36,10 @@ const ProfilePage = ({username}) => {
                 userItems.map((element)=>{
                     return( <ItemCard element={element} key={element.id}/>)
                 })
+            }
+            <button onClick={()=>{setFormVisible(true)}}>Add a new item!</button>
+            {
+                formVisible ? <NewItem setAllItems={setAllItems} setUserItems={setUserItems}/> : null
             }
 
 

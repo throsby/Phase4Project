@@ -6,8 +6,7 @@ import ShoppingCart from "./ShoppingCart";
 import Browse from "./Browse";
 import ItemContainer from "./ItemContainer";
 
-const HomePage = () => {
-    // const [potato, setPotato] = useState("tomato")
+const HomePage = ({allItems, setAllItems}) => {
 
     return(
         <ProfilePanel >
@@ -17,7 +16,7 @@ const HomePage = () => {
                 <Watchlist />
             </div>
             <Browse />
-            <ItemContainer />
+            <ItemContainer allItems={allItems} setAllItems={setAllItems}/>
         </ProfilePanel>
     )
 }

@@ -13,6 +13,15 @@ class ItemsController < ApplicationController
         end
     end
 
+    def create
+        item = Item.create(item_params)
+        if item.valid?
+            render json: item
+        else
+            render json: {error: "Unprocessable Entity"}, status: 422
+        end
+    end
+
     def update
         item = Item.find_by(id: params[:id])
         if item 
@@ -40,7 +49,7 @@ class ItemsController < ApplicationController
     private
 
     def item_params
-        params.permit(:name, :stock, :price, :description)
+        params.require(:item).permit(:name, :stock, :price, :description, :user_id)
     end
 
 end

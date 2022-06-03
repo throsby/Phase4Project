@@ -11,6 +11,7 @@ import {useState} from 'react'
 function App() {
 
   const [ username, setUsername ] = useState("")
+  const [ allItems, setAllItems ] = useState([])
 
   return (
     <div>
@@ -18,7 +19,7 @@ function App() {
     <NavBar username={username} setUsername={setUsername}/>
     <Switch>
       <Route exact path="/">
-        <HomePage />
+        <HomePage allItems={allItems} setAllItems={setAllItems}/>
       </Route>
       <Route exact path="/store">
         <Store />
@@ -30,7 +31,7 @@ function App() {
         <Cart />
       </Route>
     <Route exact path='/profile-page'>
-      <ProfilePage username={username}/>
+      <ProfilePage username={username} setAllItems={setAllItems}/>
     </Route>
     </Switch>
     </BrowserRouter>
