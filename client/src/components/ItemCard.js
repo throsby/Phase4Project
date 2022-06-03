@@ -3,7 +3,8 @@ import { useState } from 'react'
 
 const ItemCard = ({element, allItems, setAllItems, setUpdatedItem}) => {
 
-    const {name, stock, price, description} = element
+    const {name, stock, price, description, id} = element
+    const [deleteBtnVisible, setDeleteBtnVisible] = useState(false)
     const [editModalVisible, setEditModalVisible] = useState(false)
     const [formData, setFormData] = useState({
         name: name,
@@ -14,6 +15,21 @@ const ItemCard = ({element, allItems, setAllItems, setUpdatedItem}) => {
 
     const toggleVisible = () => {
         setEditModalVisible(!editModalVisible)
+    }
+
+    const handleDelete = async (e) => {
+        e.preventDefault()
+        let req = await fetch(`http://localhost:3000/items/${id}`, {
+            method: "DELETE"
+        })
+        setAllItems((prevState) => {
+            if (req.ok){
+                let arr = prevState.filter((element)=>{
+                    return(element.id !== id)
+                })
+                return arr
+            }
+        })
     }
 
     const handleUpdate = async (e) => {
@@ -38,6 +54,8 @@ const ItemCard = ({element, allItems, setAllItems, setUpdatedItem}) => {
         }
     }
 
+    let deleteMsg = deleteBtnVisible ? "No, take me back!" : "Delete this item"
+
     return (
         <div className="item-card">
             <h2>{name}</h2>
@@ -56,6 +74,16 @@ const ItemCard = ({element, allItems, setAllItems, setUpdatedItem}) => {
                         </form>
                     </div> : <button onClick={toggleVisible}>Edit Item</button>
             }
+            <button onClick={()=>{setDeleteBtnVisible(!deleteBtnVisible)}}>{deleteMsg}</button>
+
+            {
+                deleteBtnVisible ?
+                <button onClick={handleDelete}>Delete</button>  : null
+            }
+
+            {/* {
+                deleteBtnVisible ? <button onClick={handleDelete}>Delete</button> <button onClick={()=>setDeleteBtnVisible(false)}>No, take me back</button> : <button onClick={()=>setDeleteBtnVisible(true)}>Delete this item</button>
+            } */}
         </div>
     )
 }
