@@ -141,6 +141,14 @@
   z-index: 1;
 }
 
+.new-item-form *,input {
+  position: absolute;
+  flex-direction: column;
+  top: 55%;
+  left: 10%;
+  z-index: 17;
+}
+
 .add-item-button {
   position: absolute;
   width: 200px;
@@ -174,6 +182,11 @@
   background-color: rgb(214, 214, 214);
   opacity: 50%;
   z-index: 5;
+}
+
+.newitemform {
+  position: absolute;
+  top: 600px;
 }
 
 /* .store-header:hover {

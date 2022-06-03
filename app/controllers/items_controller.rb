@@ -33,14 +33,21 @@ class ItemsController < ApplicationController
         end
     end
 
-    
+    def create
+        item = Item.create!(item_params)
+        if item.valid?
+            render json: item, status: 201
+        else
+            render json: {error: "Unprocessable enitity"}, status: 422
+        end
+    end    
 
 
 
     private
 
     def item_params
-        params.permit(:name, :stock, :price, :description)
+        params.permit(:name, :stock, :price, :description, :item_picture)
     end
 
 end

@@ -8,6 +8,11 @@ const BottomForm = ({setModalVisible}) => {
         <>
             <div className="mask" onClick={handleClick}>
                 <div></div>
+                <form className="new-item-form">
+                    <input type="file" />
+                    <input type="text" placeholder="Item name"/>
+                    <input type="text" />
+                </form>
             </div>
         </>
     )
