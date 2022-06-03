@@ -15,7 +15,6 @@ const NewItem = ({setAllItems, setUserItems}) => {
     const handleSubmit = async (e) => {
         try {
             e.preventDefault()
-            let user_id = localStorage.getItem("session_user_id")
             let req = await fetch('http://localhost:3000/items', {
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},

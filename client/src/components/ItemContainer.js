@@ -3,7 +3,6 @@ import ItemCard from './ItemCard'
 
 const ItemContainer = ({allItems, setAllItems}) => {
 
-    const [allItems, setAllItems] = useState([])
     const [updatedItem, setUpdatedItem] = useState([])
 
 
