@@ -3,16 +3,22 @@
   --middlePink: rgb(255, 241, 247);
 }
 
+html {
+  background-color: yellow;
+}
+
 .watchlist-box {
   border: 1px solid black;
   border-radius: 8px;
   width: 30%;
+  background-color: gold;
 }
 
 .cart-box {
   border: 1px solid black;
   border-radius: 8px;
   width: 30%;
+  background-color: teal;
 }
 
 .lists-container {
@@ -24,6 +30,7 @@
 .browse-box {
   border: 1px solid black;
   border-radius: 8px;
+  background-color: orange;
 }
 
 .profile-box {
@@ -36,6 +43,7 @@
   border-bottom: 0px;
   left: 5vw;
   width: 90vw;
+  background-color: lightcoral;
 }
 
 .profile-circle {
@@ -47,6 +55,7 @@
   bottom: 95%;
   width: min(40vh, 270px);
   height: min(40vh, 270px);
+  background-color: blueviolet;
 }
 
 .login-modal {
@@ -94,6 +103,7 @@
   margin: 2%;
   border: 2px solid black;
   border-radius: 10px;
+  background-color: blueviolet;
 }
 
 .navbar {
