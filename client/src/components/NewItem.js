@@ -13,10 +13,17 @@ const NewItem = ({setAllItems, setUserItems}) => {
     })
 
     const handleSubmit = async (e) => {
-        console.log(e)
+        console.log(e.target[0].value)
         console.log(e.target[4].files[0])
         console.log(formData)
-        let wholeForm = new FormData(document.querySelector(".newItemForm"))
+        let wholeForm = new FormData(document.querySelector("form"))
+
+        // setFormData((prevState) => {[...prevState, "name": e.target[0].value]})
+        wholeForm.set("stock", e.target[1].value)
+        wholeForm.set("price", e.target[2].value)
+        wholeForm.set("description", e.target[3].value)
+        // wholeForm.append("image", e.target[2].value)
+        console.log(wholeForm)
         wholeForm.append("image",e.target[4].files[0])
         console.log(wholeForm)
         try {
@@ -25,6 +32,7 @@ const NewItem = ({setAllItems, setUserItems}) => {
             let req = await fetch('http://localhost:3000/items', {
                 method: "POST",
                 // headers: {'Content-Type': 'application/json'},
+                headers: {'Content-Type': 'multipart/form-data' },
                 // body: JSON.stringify(formData)
                 body: wholeForm
             })

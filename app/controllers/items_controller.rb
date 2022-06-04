@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
         item = Item.create(item_params)
         # (io: File.open("/Users/throsbywells/Desktop/download.jpg"), filename: "download.jpg", content_type: "image/jpeg")
         p item_params  
-        p "\n"
+        puts "\n"
 
         p "Image" 
         
